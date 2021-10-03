@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import './character.css'
 
 export const Characters = () => {
 
@@ -8,15 +9,22 @@ export const Characters = () => {
         fetch('https://rickandmortyapi.com/api/character/')
         .then(response => response.json())
         .then(data => setCharacters(data.results));
+   
     }, []);
 
-
+    
     return (
         <div className= 'Characters'>
+           
             {characters.map(character => (
-                <h2>{character.name}</h2>   
-            ))}
-         
+            <div className= 'card'>
+                <h2>{character.name}</h2>
+                <h3>{character.gender}</h3>
+                <img src={character.image} alt="foto"/>
+            </div>
+            ))}          
+           
+          
         </div>
     )
 }

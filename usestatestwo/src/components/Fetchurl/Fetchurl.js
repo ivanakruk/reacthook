@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Card from "../Card/Card";
+import axios from "axios";
+
 const Fetchurl = () =>{
     
     const [users, setUsers] = useState([]);
@@ -8,10 +10,14 @@ const Fetchurl = () =>{
     const baseURL = 'https://reqres.in/';
     const getUsers = async () =>{
         try {
-            const response = await fetch(`${baseURL}api/users?page=2}`);
+
+            const response = await axios.get(`${baseURL}api/users?page=2}`);
+            setUsers(response.data.data);
+
+          /*   const response = await fetch(`${baseURL}api/users?page=2}`);
             const json = await response.json();
             console.log(json.data);
-            setUsers(json.data);
+            setUsers(json.data); */
         } catch (error) {
             alert(error);
         }
@@ -22,12 +28,8 @@ const Fetchurl = () =>{
     }  */
 
     return(
-
-    
+   
         <div style = {{ height:'300px', display:'flex', border:'1px solid white'}}>
-
-
-
             {users.map ( (u,i) => <Card key={i} {...u} />)}
          
             {/* id={u.id} email={u.email}

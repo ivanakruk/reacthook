@@ -1,0 +1,12 @@
+.Characters{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: .5em;
+}
+
+.card{
+   font-size: .5em;
+   margin: 1em;
+   border: 1px solid fuchsia;
+}

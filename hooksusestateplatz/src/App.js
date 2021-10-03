@@ -16,10 +16,10 @@ function App() {
   return (
     <div className='App'>
       <div className= {darkMode ? 'dark-mode' : 'light-mode'} >
-      <h1>ReactHooks</h1>
+      <h1>Práctica de ReactHooks</h1>
       <button type='button' onClick={handleClick}>{darkMode ? 'Dark Mode' : 'Light Mode'}</button>              
       <Characters />
-      <h1>Hola Mundo</h1>
+      
       </div>     
       
       
