@@ -1,12 +1,15 @@
 /* import logo from './logo.svg'; */
+/* import Form from './components/Form' */
 import './App.css';
-import Form from './components/Form'
+import Fetchurl from './components/Fetchurl/Fetchurl';
+
 function App() {
   return (
     <div className="App">
       <header className='app-form'>
-       {/*  <img src={logo} className="App-logo" alt="logo" /> */}
-      <Form />
+       <Fetchurl/>
+       
+      
       </header>
     </div>
   );
