@@ -1,17 +1,11 @@
-.App *{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; 
-}
+
 
 .App-header {
-  background-color: #282c34;
+  background-color: #c1c4ca;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  display: flex; 
+  justify-content: center;   
+  font-size:1em;
   color: white;
 }
 
