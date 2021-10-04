@@ -1,10 +1,9 @@
 
-const Card = ( {name}) => {
 
+const Card = ({name,gender}) => {
     return (
-      <div className='containerCharacters'>
-        <p>{name}</p>
-        
+      <div>
+        <h5>Nombre:  {name} Genero: {gender}</h5>     
            
       </div>  
        

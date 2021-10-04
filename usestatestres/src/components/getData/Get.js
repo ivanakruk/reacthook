@@ -5,8 +5,6 @@ import Card from "../card/Card";
 const Get = () => {
     
     const [users, setUsers] = useState([]);
-
-
     const baseURL = 'https://rickandmortyapi.com/api/character';
     const getUsers = async () => {
         try {
@@ -17,16 +15,11 @@ const Get = () => {
             alert(error)
         }
     }
-     return(
+     return (
          <div className= 'characters-button'>
-             {users.map( (u,i) => <Card key ={i}
-              nombre = {u.name}
-              
-              
-             /> )}
-             <div>                       
-                <button className='showButton' onClick= {getUsers} type= 'button'>Mostrar personajes</button>
-             </div>
+             {users.map( (u,i) =><Card key={i} { ... u}/> )}                                   
+            <button className='showButton' onClick= {getUsers} type= 'button'>Mostrar personajes</button>
+             
          </div>
      )   
 } 
