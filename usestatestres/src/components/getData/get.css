@@ -1,0 +1,13 @@
+.characters-button{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: aquamarine;
+    
+}
+.showButton{
+    width: 200px;
+    height: 50px;
+}

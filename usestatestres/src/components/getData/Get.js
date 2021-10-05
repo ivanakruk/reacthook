@@ -17,7 +17,7 @@ const Get = () => {
     }
      return (
          <div className= 'characters-button'>
-             {users.map( (u,i) =><Card key={i} { ... u}/> )}                                   
+             {users.map( (u,i) =>  <Card key={i} { ... u}/> )}                                   
             <button className='showButton' onClick= {getUsers} type= 'button'>Mostrar personajes</button>
              
          </div>
