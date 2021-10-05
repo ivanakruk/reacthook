@@ -5,6 +5,7 @@ import '../src/components/card/card.css'
 import '../src/components/form/form.css'
 import '../src/components/getData/get.css'
 
+
 function App() {
   return (
     <div className="App">
