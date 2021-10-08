@@ -1,17 +1,22 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState  } from 'react'
+
+
 const Button = () => {
      
     const [clicked,setClicked] = useState(false);
 
 
      useEffect( () => {
-         console.log('Hola', clicked);
-     },[]);
+         console.log('Me clickeaste', clicked);
+     });
     
-    const handleClick = () => [
+    const handleClick = () => {
         setClicked(true)
-    ]
+    }
+        
+    
+
     return (
         <div>
             <button onClick={handleClick} >Soy un boton</button>
