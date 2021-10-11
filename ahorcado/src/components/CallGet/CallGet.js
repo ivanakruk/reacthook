@@ -4,42 +4,37 @@ import React from 'react'
 
 const CallGet = () => {
 
-    const baseUrl = 'https://back-sandbox.herokuapp.com/api'
-    const [button, setButton]  = useState([]);
+    const baseURl = 'https://back-sandbox.herokuapp.com/api';
+ 
 
-    const showData = async () => {
-
+    const iniciarJuego = async () =>{
+        
         try {
-
-            const response = await fetch (baseUrl ,
-                {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNWY3OTQxNGVmYmQ2MDAwNDg2ZWQ1NyIsImlhdCI6MTYzMzgyMTkwNH0.xpM7MURKqZICqlIWsktbf5ReG2BzmhP0uTr5NzQ1cnk"
-                    }
-                    
-                
-                } );
-
-                const json = await response.json(
-                    console.log(json.data)
-                )
-            
-        } catch (error) {
-            alert(error);
+            const response = await fetch (`${baseURl}/hanged-game/start`, {
+                method:'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNWY3OTQxNGVmYmQ2MDAwNDg2ZWQ1NyIsImlhdCI6MTYzMzkwOTQ1Nn0.ewNIsqq0w5Y7P9e0y21MtDDNlqoLvwNptfQHIUTeWVI"
+                }
+            })
+            const json = await response.json();
+            console.log(json);
+        } 
+        catch (error) {
+            alert(error)
         }
     }
 
     return (
         <div>
-            <button onClick={showData} type='button'>Enviar letra</button>
+            <button onClick={iniciarJuego}>Iniciar juego</button>
+         {/*    <input type="text" onChange={}/>
+            <button onClick={}>Enviar letra</button>
+            <h1>{}</h1>
+            <h1>{}</h1> */}
         </div>
     )
 }
-
-
-
 
 
 export default CallGet;
