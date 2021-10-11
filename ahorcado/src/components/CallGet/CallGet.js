@@ -6,6 +6,16 @@ const CallGet = () => {
 
     const baseURl = 'https://back-sandbox.herokuapp.com/api';
     const [letra,setLetra] = useState('');
+    const [matcheds,setMatcheds] = useState([]);
+    const [letrasErroneas, setLetrasErroneas] = useState([]);
+    const [word, setWord]  = useState([]);
+
+    useEffect(() => {
+        /* const localToken = localStorage.getItem('token'); */
+        document.title = `You clicked ${matcheds} times`;
+    });
+
+
     const onChangeLetter = (e) => {
         setLetra(e.target.value);
     }
@@ -32,7 +42,7 @@ const CallGet = () => {
     
     {
         try {
-            const response = await fetch (`https://back-sandbox.herokuapp.com/api/hanged-game/try`,
+            const response = await fetch (`${baseURl}/hanged-game/try`,
             {
                 method:'POST',
                 headers: {
@@ -43,6 +53,9 @@ const CallGet = () => {
             })
             const json = await response.json();
             console.log(json);
+            setMatcheds(json.data.matcheds);
+            setLetrasErroneas(json.data.wrongLetters);
+            setWord(json.data.word);
          
         } catch (error) {
             alert(`${error} error letra`);
@@ -56,7 +69,9 @@ const CallGet = () => {
             <button onClick={iniciarJuego}>Iniciar juego</button>
             <input type="text" onChange={onChangeLetter} />
             <button onClick={enviarLetra}>Enviar letra</button>
-           
+            <h1>{matcheds}</h1>
+            <h2>letras erroneas : {letrasErroneas}</h2>
+            <h2>{word}</h2>
         </div>
     )
 }
