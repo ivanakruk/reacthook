@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import React from 'react'
+import ShowCharacters from "../ShowCharacters/ShowCharacters";
 
 const CallGet = () => {
 
@@ -54,8 +55,10 @@ const CallGet = () => {
             const json = await response.json();
             console.log(json);
             setMatcheds(json.data.matcheds);
+            
             setLetrasErroneas(json.data.wrongLetters);
             setWord(json.data.word);
+          
          
         } catch (error) {
             alert(`${error} error letra`);
@@ -66,13 +69,18 @@ const CallGet = () => {
 
     return (
         <div>
-            <button onClick={iniciarJuego}>Iniciar juego</button>
+            <button  onClick ={iniciarJuego}>Iniciar juego</button>
             <input type="text" onChange={onChangeLetter} />
             <button onClick={enviarLetra}>Enviar letra</button>
-            <h1>{matcheds}</h1>
-            <h2>letras erroneas : {letrasErroneas}</h2>
-            <h2>{word}</h2>
-        </div>
+            <div style={{display:'flex'}}>
+                {matcheds.map( (m,i) => {
+                    return <ShowCharacters character={m} key={i} />
+                })}
+            </div>
+            <p>cantidad intentos:{setWord.attempsMade}</p>            
+            <h2>Letras erroneas : {letrasErroneas}</h2>
+            <h2>{word}</h2>           
+         </div>
     )
 }
 
