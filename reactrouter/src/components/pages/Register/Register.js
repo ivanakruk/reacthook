@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router"
-
+import axios, { Axios } from "axios";
 
 const Register = () => {
 
@@ -35,22 +35,12 @@ const Register = () => {
     const onRegister = async () => {
 
         try {
-            const response =await fetch('https://back-sandbox.herokuapp.com/api/auth/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({email, password, name, lastname, age})
-            });
-
+            const response =await axios.post('/auth/register', {email, password, name, lastname, age})
             console.log(response);
             
             if(response.status ===200){ 
-                setError(false)
-                const json = await response.json();
-                console.log(json);
+                setError(false);                                
                 alert('Te registraste');
-
                 history.push('/login'); 
             }else{
                 setError(true);

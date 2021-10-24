@@ -1,7 +1,7 @@
 /* import { Link } from "react-router-dom" */
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router"
-
+import { instance } from "../../axios/axios";
 
 const Login = () => {
 
@@ -29,20 +29,14 @@ const Login = () => {
     const onLogin = async () => {
 
         try {
-            const response =await fetch('https://back-sandbox.herokuapp.com/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({email, password})
-            });
+            const response =await instance.post('/auth/login', {email, password});
 
             console.log(response);
             
             if(response.status ===200){ /* si esta bien la llamada guardo el token en localstorage y lo mando a la pag */
-                const json = await response.json();
-                console.log(json);
-                localStorage.setItem('token', json.token);
+                setError(false);
+                console.log(response.data);
+                localStorage.setItem('token', response.data.token);
 
                 history.push('/products'); 
             }else{
